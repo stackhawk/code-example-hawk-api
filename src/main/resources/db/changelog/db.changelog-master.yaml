@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - preConditions:
+      - runningAs:
+          username: hawkadmin
+
+  - changeSet:
+      id: 1
+      author: kberg
+      changes:
+        - createSequence:
+            - sequenceName: seq_hawk_id
+        - createTable:
+            tableName: hawk
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: gender
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: size
+                  type: varchar(30)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: wingspan_begin
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: wingspan_end
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: length_begin
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: length_end
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight_begin
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight_end
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: color_description
+                  type: text
+              - column:
+                  name: behavior_description
+                  type: text
+              - column:
+                  name: habitat_description
+                  type: text
+              - column:
+                  name: picture_url
+                  type: varchar(1024)

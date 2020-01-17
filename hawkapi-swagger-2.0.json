@@ -1,0 +1,352 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "A hawk species reference api",
+    "version": "0.0.1",
+    "title": "Hawk Reference Api",
+    "contact": {
+      "name": "Hawk API Info",
+      "url": "https://localhost:8000",
+      "email": "info@stackhawk.com"
+    },
+    "license": {
+      "name": "unknown"
+    }
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "hawk-controller",
+      "description": "Hawk Controller"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/hawk": {
+      "post": {
+        "tags": [
+          "hawk-controller"
+        ],
+        "summary": "add new hawk",
+        "operationId": "createHawkUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "hawk",
+            "description": "hawk",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Hawk"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Hawk"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/hawk/list": {
+      "get": {
+        "tags": [
+          "hawk-controller"
+        ],
+        "summary": "get hawks matching filter",
+        "operationId": "listHawksUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "filter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "pageSize",
+            "required": false,
+            "type": "string",
+            "default": "10"
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "description": "pageToken",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sortDir",
+            "in": "query",
+            "description": "sortDir",
+            "required": false,
+            "type": "string",
+            "default": "asc"
+          },
+          {
+            "name": "sortField",
+            "in": "query",
+            "description": "sortField",
+            "required": false,
+            "type": "string",
+            "default": "name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/HawkListResult"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/hawk/{id}": {
+      "get": {
+        "tags": [
+          "hawk-controller"
+        ],
+        "summary": "get hawk by id",
+        "operationId": "getHawkUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Hawk"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "hawk-controller"
+        ],
+        "summary": "update hawk by id",
+        "operationId": "updateHawkUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "hawk",
+            "description": "hawk",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Hawk"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Hawk"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "hawk-controller"
+        ],
+        "summary": "remove hawk by id",
+        "operationId": "deleteHawkUsingDELETE",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Hawk": {
+      "type": "object",
+      "properties": {
+        "behaviorDescription": {
+          "type": "string"
+        },
+        "colorDescription": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "string",
+          "enum": [
+            "MALE",
+            "FEMALE"
+          ]
+        },
+        "habitatDescription": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lengthBegin": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lengthEnd": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "pictureUrl": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "enum": [
+            "SMALL",
+            "MEDIUM",
+            "LARGE"
+          ]
+        },
+        "weightBegin": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "weightEnd": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "wingspanBegin": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "wingspanEnd": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Hawk"
+    },
+    "HawkListResult": {
+      "type": "object",
+      "properties": {
+        "hawks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Hawk"
+          }
+        },
+        "pageToken": {
+          "type": "string"
+        }
+      },
+      "title": "HawkListResult"
+    }
+  }
+}

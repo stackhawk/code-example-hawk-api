@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  hawkapi:
+    build: .
+    image: stackhawk/hawkapi:latest
+    container_name: hawkapi
+    ports:
+      - "8000:8000"
+  postgres-hawkapi:
+    image: postgres:latest
+    container_name: postgres-hawkapi
+    ports:
+      - 5432
+    environment:
+      - POSTGRES_PASSWORD=testlab
+      - POSTGRES_USER=hawkadmin
+      - POSTGRES_DB=hawkapi
+    volumes:
+      - pg-hawkapi-data:/var/lib/postgresql/data
+
+volumes:
+  pg-hawkapi-data:
