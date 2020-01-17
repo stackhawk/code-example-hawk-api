@@ -4,7 +4,7 @@ This project contains an api for managing a hawk species reference database.
 The goal of this project is for you to implement the UI screens to manage the hawk reference database.
 
 The UI design is a single page app with two screens. Please
-reference the [screen mockups](Hawk%20Reference%20UI.pdf) for the design.
+reference the [screen mockups](Hawk%20Reference%20UI%20Mocks.pdf) for the design.
 
 The `ui/` folder contains a stub of the Typescript/React/Redux based UI.
 
