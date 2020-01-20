@@ -6,7 +6,7 @@ The goal of this project is for you to implement the UI screens to manage the ha
 The UI design is a single page app with two screens. Please
 reference the [screen mockups](Hawk%20Reference%20UI%20Mocks.pdf) for the design.
 
-*NOTE:* The github pdf render is not very good, please download the PDF for proper viewing.
+**NOTE:** *The github pdf render is not very good, please download the PDF for proper viewing.*
 
 
 The `ui/` folder contains a stub of the Typescript/React/Redux based UI.
