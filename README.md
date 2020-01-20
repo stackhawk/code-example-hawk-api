@@ -9,6 +9,10 @@ reference the [screen mockups](Hawk%20Reference%20UI%20Mocks.pdf) for the design
 The `ui/` folder contains a stub of the Typescript/React/Redux based UI.
 
 You should fork this project and implement the UI based on the design.
+The UI mocks are purposefully low fidelity and should be interpreted for actual component
+and view design.
+
+Be creative and demonstrate your UI skills!
 
 
 ## Dependencies

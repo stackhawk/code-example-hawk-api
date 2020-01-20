@@ -4,5 +4,10 @@
 # Ignore Gradle build output directory
 build
 
+# IntelliJ
 .idea/
 *.iml
+
+# npm
+node_modules/
+yarn.lock
