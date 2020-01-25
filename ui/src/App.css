@@ -25,6 +25,126 @@
 .hawk-details {
   display: initial;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr 3fr 3fr 2fr;
+  grid-template-areas: "nameLabel nameLabel nameInput nameInput nameInput nameInput nameInput nameInput" "sizeLabel sizeLabel sizeInput sizeInput sizeInput . . ." "genderLabel genderLabel genderInput genderInput genderInput . . ." "lengthLabel lengthLabel lengthFrom lengthFromInput lengthTo lengthToInput lengthUnits lengthUnits" "wingspanLabel wingspanLabel wingspanFrom wingspanFromInput wingspanTo wingspanToInput wingspanUnits wingspanUnits" "weightLabel weightLabel weightFrom weightFromInput weightTo weightToInput weightUnits weightUnits" "urlInput urlInput urlInput urlInput urlInput urlInput urlInput urlInput" "colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription" "behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription" "habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription" ". . . . . . saveButton saveButton";
+}
+
+.hawk-details .name-label {
+  grid-area: nameLabel;
+}
+
+.hawk-details #id {
+  grid-area: nameInput;
+}
+
+.hawk-details .size-label {
+  grid-area: sizeLabel;
+}
+
+.hawk-details #size {
+  grid-area: sizeInput;
+}
+
+.hawk-details .gender-label {
+  grid-area: genderLabel;
+}
+
+.hawk-details #gender {
+  grid-area: genderInput;
+}
+
+.hawk-details .length-label {
+  grid-area: lengthLabel;
+}
+
+.hawk-details .length-from {
+  grid-area: lengthFrom;
+}
+
+.hawk-details .length-from-input {
+  grid-area: lengthFromInput;
+}
+
+.hawk-details .length-to {
+  grid-area: lengthTo;
+}
+
+.hawk-details .length-to-input {
+  grid-area: lengthToInput;
+}
+
+.hawk-details .length-units {
+  grid-area: lengthUnits;
+}
+
+.hawk-details .wingspan-label {
+  grid-area: wingspanLabel;
+}
+
+.hawk-details .wingspan-from {
+  grid-area: wingspanFrom;
+}
+
+.hawk-details .wingspan-from-input {
+  grid-area: wingspanFromInput;
+}
+
+.hawk-details .wingspan-to {
+  grid-area: wingspanTo;
+}
+
+.hawk-details .wingspan-to-input {
+  grid-area: wingspanToInput;
+}
+
+.hawk-details .wingspan-units {
+  grid-area: wingspanUnits;
+}
+
+.hawk-details .weight-label {
+  grid-area: weightLabel;
+}
+
+.hawk-details .weight-from {
+  grid-area: weightFrom;
+}
+
+.hawk-details .weight-from-input {
+  grid-area: weightFromInput;
+}
+
+.hawk-details .weight-to {
+  grid-area: weightTo;
+}
+
+.hawk-details .weight-to-input {
+  grid-area: weightToInput;
+}
+
+.hawk-details .weight-units {
+  grid-area: weightUnits;
+}
+
+.hawk-details .url-input {
+  grid-area: urlInput;
+}
+
+.hawk-details .color-description {
+  grid-area: colorDescription;
+}
+
+.hawk-details .behavior-description {
+  grid-area: behaviorDescription;
+}
+
+.hawk-details .habitat-description {
+  grid-area: habitatDescription;
+}
+
+.hawk-details .save-button {
+  grid-area: saveButton;
 }
 
 /* Table */

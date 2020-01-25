@@ -1,6 +1,5 @@
 import React from "react";
 import { Hawk } from "./HawkTable";
-import { HawkDetails } from "./HawkDetails";
 
 interface TableProps {
   hawks: Hawk[];
