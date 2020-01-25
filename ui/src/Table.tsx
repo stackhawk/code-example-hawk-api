@@ -4,10 +4,12 @@ import { HawkDetails } from "./HawkDetails";
 
 interface TableProps {
   hawks: Hawk[];
+  toggleDetails: Function;
 }
 
 interface TableRowProps {
   hawk: Hawk;
+  toggleDetails: Function;
 }
 
 const TableRow: React.FC<TableRowProps> = TableRowProps => {
@@ -16,7 +18,9 @@ const TableRow: React.FC<TableRowProps> = TableRowProps => {
       <span className="name">{TableRowProps.hawk.name}</span>
       <span className="size">{TableRowProps.hawk.size}</span>
       <span className="gender">{TableRowProps.hawk.gender}</span>
-      <button>View</button>
+      <button onClick={() => TableRowProps.toggleDetails(TableRowProps.hawk)}>
+        View
+      </button>
     </li>
   );
 };
@@ -27,7 +31,12 @@ const Table: React.FC<TableProps> = TableProps => {
       {TableProps.hawks.length < 1 ? (
         <li>Add a hawk with the Add Hawk button</li>
       ) : (
-        TableProps.hawks.map(hawk => <TableRow hawk={hawk}></TableRow>)
+        TableProps.hawks.map(hawk => (
+          <TableRow
+            hawk={hawk}
+            toggleDetails={TableProps.toggleDetails}
+          ></TableRow>
+        ))
       )}
     </ol>
   );

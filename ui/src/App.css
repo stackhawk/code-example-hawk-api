@@ -12,14 +12,19 @@
   box-sizing: border-box;
 }
 
-.App {
+.hawk-reference {
   display: flex;
 }
 
 /* Details */
 
-.hawk-details {
+.hawk-details-hide {
   display: none;
+}
+
+.hawk-details {
+  display: initial;
+  width: 100%;
 }
 
 /* Table */

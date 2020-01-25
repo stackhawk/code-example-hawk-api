@@ -22,9 +22,13 @@ type HawkTableState = {
   hawks: Hawk[];
 };
 
-export class HawkTable extends Component<{}, HawkTableState> {
-  constructor() {
-    super({});
+type HawkTableProps = {
+  toggleDetails: Function;
+};
+
+export class HawkTable extends Component<HawkTableProps, HawkTableState> {
+  constructor(props: HawkTableProps) {
+    super(props);
 
     this.state = {
       hawks: []
@@ -35,7 +39,6 @@ export class HawkTable extends Component<{}, HawkTableState> {
     fetch("/list")
       .then(response => response.json())
       .then(data => {
-        console.log(data.hawks);
         const hawks = data.hawks;
         this.setState({ hawks });
       });
@@ -52,7 +55,10 @@ export class HawkTable extends Component<{}, HawkTableState> {
         <button className="filter-button name-filter">Name</button>
         <button className="filter-button size-filter">Size</button>
         <button className="filter-button gender-filter">Gender</button>
-        <Table hawks={this.state.hawks}></Table>
+        <Table
+          hawks={this.state.hawks}
+          toggleDetails={this.props.toggleDetails}
+        ></Table>
       </div>
     );
   }

@@ -1,13 +1,11 @@
 import React from "react";
 import "./App.css";
-import { HawkTable } from "./HawkTable";
-import { HawkDetails } from "./HawkDetails";
+import { HawkReference } from "./HawkReference";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <HawkTable></HawkTable>
-      <HawkDetails></HawkDetails>
+      <HawkReference></HawkReference>
     </div>
   );
 };
