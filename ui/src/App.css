@@ -1,5 +1,11 @@
 /* App  */
 
+:root {
+  --main-color-dark: rgb(196, 196, 196);
+  --main-color-mid: rgb(225, 225, 225);
+  --main-color-light: rgb(238, 238, 238);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +26,6 @@
 
 .hawk-table {
   display: grid;
-  background-color: red;
   grid-template-rows: 1fr 1fr 1fr auto;
   grid-template-columns: 4fr 2fr 1fr 1fr;
   grid-template-areas: "addButton . . ." "inputFilter . . ." "nameFilter sizeFilter genderFilter ." "table table table table";
@@ -30,6 +35,7 @@
 
 .add-button {
   grid-area: addButton;
+  background-color: var(--main-color-dark);
   width: 150px;
   height: 50px;
 }
@@ -38,6 +44,10 @@
   grid-area: inputFilter;
   width: 80%;
   display: flex;
+  padding: 1%;
+  background-color: var(--main-color-mid);
+  margin: 2%;
+  margin-left: 0;
 }
 
 .filter-input input {
@@ -46,6 +56,10 @@
 
 .filter-input button {
   width: 20%;
+}
+
+.filter-button {
+  background-color: var(--main-color-dark);
 }
 
 .name-filter {
@@ -62,7 +76,16 @@
 
 .table {
   grid-area: table;
-  background-color: green;
+  list-style: none;
+  margin: 1% 0;
+}
+
+.table .table-row {
+  background-color: var(--main-color-light);
+}
+
+.table .table-row:nth-child(2) {
+  background-color: var(--main-color-mid);
 }
 
 .table .table-row .name {
