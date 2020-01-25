@@ -1,3 +1,5 @@
+/* App  */
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +10,13 @@
   display: flex;
 }
 
+/* Details */
+
 .hawk-details {
   display: none;
 }
+
+/* Table */
 
 .hawk-table {
   display: grid;
@@ -57,4 +63,24 @@
 .table {
   grid-area: table;
   background-color: green;
+}
+
+.table .table-row .name {
+  display: inline-block;
+  width: 50%;
+}
+
+.table .table-row .size {
+  display: inline-block;
+  width: 25%;
+}
+
+.table .table-row .gender {
+  display: inline-block;
+  width: 12.5%;
+}
+
+.table .table-row button {
+  display: inline-block;
+  width: 12.5%;
 }
