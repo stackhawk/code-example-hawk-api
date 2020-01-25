@@ -7,3 +7,54 @@
 .App {
   display: flex;
 }
+
+.hawk-details {
+  display: none;
+}
+
+.hawk-table {
+  display: grid;
+  background-color: red;
+  grid-template-rows: 1fr 1fr 1fr auto;
+  grid-template-columns: 4fr 2fr 1fr 1fr;
+  grid-template-areas: "addButton . . ." "inputFilter . . ." "nameFilter sizeFilter genderFilter ." "table table table table";
+  width: 100%;
+  padding: 2%;
+}
+
+.add-button {
+  grid-area: addButton;
+  width: 150px;
+  height: 50px;
+}
+
+.filter-input {
+  grid-area: inputFilter;
+  width: 80%;
+  display: flex;
+}
+
+.filter-input input {
+  width: 80%;
+}
+
+.filter-input button {
+  width: 20%;
+}
+
+.name-filter {
+  grid-area: nameFilter;
+}
+
+.size-filter {
+  grid-area: sizeFilter;
+}
+
+.gender-filter {
+  grid-area: genderFilter;
+}
+
+.table {
+  grid-area: table;
+  background-color: green;
+}

@@ -4,6 +4,6 @@ type HawkDetailsState = {};
 
 export class HawkDetails extends Component<{}, HawkDetailsState> {
   render() {
-    return <p>Hawk Details</p>;
+    return <div className="hawk-details">Hawk Details</div>;
   }
 }
