@@ -7,7 +7,7 @@ type HawkReferenceProps = {};
 
 type HawkReferenceState = {
   displayDetails: Boolean;
-  hawkDetails: Hawk | null;
+  hawkDetails: Hawk;
 };
 
 export class HawkReference extends Component<
@@ -19,20 +19,25 @@ export class HawkReference extends Component<
 
     this.state = {
       displayDetails: false,
-      hawkDetails: null
+      hawkDetails: {} as Hawk
     };
   }
 
-  toggleDetails = () => {
-    console.log(12);
-    this.setState({ displayDetails: !this.state.displayDetails });
+  toggleDetails = (hawk: Hawk) => {
+    this.setState({
+      displayDetails: !this.state.displayDetails,
+      hawkDetails: hawk
+    });
   };
 
   render() {
     return (
       <div className="hawk-reference">
         <HawkTable toggleDetails={this.toggleDetails}></HawkTable>
-        <HawkDetails displayDetails={this.state.displayDetails}></HawkDetails>
+        <HawkDetails
+          displayDetails={this.state.displayDetails}
+          hawkDetails={this.state.hawkDetails}
+        ></HawkDetails>
       </div>
     );
   }
