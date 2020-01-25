@@ -3,7 +3,13 @@ import React, { Component } from "react";
 type HawkTableState = {};
 
 export class HawkTable extends Component<{}, HawkTableState> {
-  componentDidMount() {}
+  componentDidMount() {
+    fetch("/list")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      });
+  }
 
   render() {
     return (

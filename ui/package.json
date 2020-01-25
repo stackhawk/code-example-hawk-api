@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Stackhawk code example ui project",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
