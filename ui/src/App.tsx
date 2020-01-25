@@ -1,12 +1,15 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { HawkTable } from "./HawkTable";
+import { HawkDetails } from "./HawkDetails";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <h1>hello world</h1>
+      <HawkTable></HawkTable>
+      <HawkDetails></HawkDetails>
     </div>
   );
-}
+};
 
 export default App;

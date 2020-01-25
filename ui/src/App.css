@@ -1,3 +1,9 @@
-a {
-  color: #00B9B3;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
 }
