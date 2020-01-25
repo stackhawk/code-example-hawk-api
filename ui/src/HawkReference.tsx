@@ -3,23 +3,6 @@ import { HawkTable } from "./HawkTable";
 import { HawkDetails } from "./HawkDetails";
 import { Hawk } from "./HawkTable";
 
-// export type Hawk = {
-//   behaviorDescription: string;
-//   colorDescription: string;
-//   gender: string;
-//   habitatDescription: string;
-//   name: string;
-//   pictureUrl: string;
-//   size: string;
-//   id: number;
-//   lengthBegin: number;
-//   lengthEnd: number;
-//   weightBegin: number;
-//   weightEnd: number;
-//   wingspanBegin: number;
-//   wingspanEnd: number;
-// };
-
 type HawkReferenceProps = {};
 
 type HawkReferenceState = {

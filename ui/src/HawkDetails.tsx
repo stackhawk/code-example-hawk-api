@@ -20,9 +20,7 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
         className={
           this.props.displayDetails ? "hawk-details" : "hawk-details-hide"
         }
-      >
-        Hawk Details
-      </div>
+      ></div>
     );
   }
 }
