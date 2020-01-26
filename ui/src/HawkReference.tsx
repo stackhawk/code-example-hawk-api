@@ -1,13 +1,30 @@
 import React, { Component } from "react";
 import { HawkTable } from "./HawkTable";
 import { HawkDetails } from "./HawkDetails";
-import { Hawk } from "./HawkTable";
+
+export interface Hawk {
+  behaviorDescription: string;
+  colorDescription: string;
+  gender: string;
+  habitatDescription: string;
+  name: string;
+  pictureUrl: string;
+  size: string;
+  id: number;
+  lengthBegin: number;
+  lengthEnd: number;
+  weightBegin: number;
+  weightEnd: number;
+  wingspanBegin: number;
+  wingspanEnd: number;
+}
 
 type HawkReferenceProps = {};
 
 type HawkReferenceState = {
   displayDetails: Boolean;
   hawkDetails: Hawk;
+  hawks: Hawk[];
 };
 
 interface IIndexable {
@@ -23,9 +40,23 @@ export class HawkReference extends Component<
 
     this.state = {
       displayDetails: false,
-      hawkDetails: {} as Hawk
+      hawkDetails: {} as Hawk,
+      hawks: []
     };
   }
+
+  componentDidMount() {
+    this.fetchList();
+  }
+
+  fetchList = () => {
+    fetch("/list")
+      .then(response => response.json())
+      .then(data => {
+        const hawks = data.hawks;
+        this.setState({ hawks });
+      });
+  };
 
   toggleDetails = (hawk: Hawk) => {
     this.setState({
@@ -41,6 +72,29 @@ export class HawkReference extends Component<
     });
   };
 
+  saveHawk = () => {
+    // fetch("https://api.github.com/gists", {
+    //   method: "post",
+    //   body: JSON.stringify(opts)
+    // })
+    //   .then(function(response) {})
+    //   .then(function(data) {
+    //     ChromeSamples.log("Created Gist:", data.html_url);
+    //   });
+    const hawk = Object.assign({}, this.state.hawkDetails, { id: Date.now() });
+    fetch("/api/hawk", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(hawk as any)
+    })
+      .then(res => res.json())
+      .then(json => {
+        this.fetchList();
+      });
+  };
+
   handleChange = (value: string, property: string) => {
     type propertyA = keyof Hawk;
     const hawkDetails = { ...this.state.hawkDetails };
@@ -54,6 +108,7 @@ export class HawkReference extends Component<
         <HawkTable
           toggleDetails={this.toggleDetails}
           addHawk={this.addHawk}
+          hawks={this.state.hawks}
         ></HawkTable>
         {this.state.displayDetails && (
           <HawkDetails
@@ -61,6 +116,7 @@ export class HawkReference extends Component<
             displayDetails={this.state.displayDetails}
             hawkDetails={this.state.hawkDetails}
             handleChange={this.handleChange}
+            saveHawk={this.saveHawk}
           ></HawkDetails>
         )}
       </div>
