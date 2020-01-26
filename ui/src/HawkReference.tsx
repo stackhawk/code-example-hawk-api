@@ -10,6 +10,10 @@ type HawkReferenceState = {
   hawkDetails: Hawk;
 };
 
+interface IIndexable {
+  [key: string]: any;
+}
+
 export class HawkReference extends Component<
   HawkReferenceProps,
   HawkReferenceState
@@ -30,14 +34,35 @@ export class HawkReference extends Component<
     });
   };
 
+  addHawk = () => {
+    this.setState({
+      displayDetails: true,
+      hawkDetails: {} as Hawk
+    });
+  };
+
+  handleChange = (value: string, property: string) => {
+    type propertyA = keyof Hawk;
+    const hawkDetails = { ...this.state.hawkDetails };
+    (hawkDetails as IIndexable)[property] = value;
+    this.setState({ hawkDetails });
+  };
+
   render() {
     return (
       <div className="hawk-reference">
-        <HawkTable toggleDetails={this.toggleDetails}></HawkTable>
-        <HawkDetails
-          displayDetails={this.state.displayDetails}
-          hawkDetails={this.state.hawkDetails}
-        ></HawkDetails>
+        <HawkTable
+          toggleDetails={this.toggleDetails}
+          addHawk={this.addHawk}
+        ></HawkTable>
+        {this.state.displayDetails && (
+          <HawkDetails
+            hawkId={this.state.hawkDetails.id}
+            displayDetails={this.state.displayDetails}
+            hawkDetails={this.state.hawkDetails}
+            handleChange={this.handleChange}
+          ></HawkDetails>
+        )}
       </div>
     );
   }

@@ -24,6 +24,7 @@ type HawkTableState = {
 
 type HawkTableProps = {
   toggleDetails: Function;
+  addHawk: Function;
 };
 
 export class HawkTable extends Component<HawkTableProps, HawkTableState> {
@@ -47,7 +48,9 @@ export class HawkTable extends Component<HawkTableProps, HawkTableState> {
   render() {
     return (
       <div className="hawk-table">
-        <button className="add-button">+ Add Hawk</button>
+        <button className="add-button" onClick={() => this.props.addHawk()}>
+          + Add Hawk
+        </button>
         <div className="filter-input">
           <input type="text" name="filter" aria-label="filter" />
           <button>filter</button>

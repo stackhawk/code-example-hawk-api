@@ -4,32 +4,25 @@ import { Hawk } from "./HawkTable";
 type HawkDetailsProps = {
   displayDetails: Boolean;
   hawkDetails: Hawk;
+  handleChange: Function;
+  hawkId: number;
 };
 
 type HawkDetailsState = {};
 
 export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
-  constructor(props: HawkDetailsProps) {
-    super(props);
-
-    this.state = {
-      displayDetails: false
-    };
-  }
-
   render() {
     return (
-      <div
-        className={
-          this.props.displayDetails && this.props.hawkDetails
-            ? "hawk-details"
-            : "hawk-details-hide"
-        }
-      >
+      <div className="hawk-details">
         <label htmlFor="name" className="name-label">
           Name
         </label>
-        <input id="name" type="text" value={this.props.hawkDetails.name} />
+        <input
+          id="name"
+          type="text"
+          value={this.props.hawkDetails.name}
+          onChange={e => this.props.handleChange(e.target.value, "name")}
+        />
         <label htmlFor="size" className="size-label">
           Size
         </label>
