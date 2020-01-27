@@ -17,9 +17,11 @@ const TableRow: React.FC<TableRowProps> = TableRowProps => {
       <span className="name">{TableRowProps.hawk.name}</span>
       <span className="size">{TableRowProps.hawk.size}</span>
       <span className="gender">{TableRowProps.hawk.gender}</span>
-      <button onClick={() => TableRowProps.toggleDetails(TableRowProps.hawk)}>
-        View
-      </button>
+      <div className="button">
+        <button onClick={() => TableRowProps.toggleDetails(TableRowProps.hawk)}>
+          View >>
+        </button>
+      </div>
     </li>
   );
 };

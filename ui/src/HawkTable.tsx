@@ -21,7 +21,8 @@ export class HawkTable extends Component<HawkTableProps, HawkTableState> {
     return (
       <div className="hawk-table">
         <button className="add-button" onClick={() => this.props.addHawk()}>
-          + Add Hawk
+          <span aria-hidden="true">+</span>
+          <p>Add Hawk</p>
         </button>
         <div className="filter-input">
           <input type="text" name="filter" aria-label="filter" />

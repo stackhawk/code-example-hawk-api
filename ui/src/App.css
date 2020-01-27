@@ -151,7 +151,8 @@
 
 .hawk-table {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr auto;
+  grid-column-gap: 5px;
+  grid-template-rows: 1fr 1fr auto auto;
   grid-template-columns: 4fr 2fr 1fr 1fr;
   grid-template-areas: "addButton . . ." "inputFilter . . ." "nameFilter sizeFilter genderFilter ." "table table table table";
   width: 100%;
@@ -163,6 +164,16 @@
   background-color: var(--main-color-dark);
   width: 150px;
   height: 50px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-button span {
+  font-size: 34px;
+  position: relative;
+  top: -3px;
 }
 
 .filter-input {
@@ -177,14 +188,25 @@
 
 .filter-input input {
   width: 80%;
+  width: 80%;
+  height: 30px;
+  padding-left: 8px;
+  font-size: 16px;
 }
 
 .filter-input button {
   width: 20%;
+  width: 20%;
+  height: 30px;
+  margin-left: 10px;
+  background-color: var(--main-color-dark);
+  font-size: 16px;
 }
 
 .filter-button {
   background-color: var(--main-color-dark);
+  height: 30px;
+  font-size: 16px;
 }
 
 .name-filter {
@@ -203,19 +225,23 @@
   grid-area: table;
   list-style: none;
   margin: 1% 0;
+  background-color: var(--main-color-dark);
+  padding: 8px 6px;
 }
 
 .table .table-row {
   background-color: var(--main-color-light);
+  margin-bottom: 4px;
 }
 
-.table .table-row:nth-child(2) {
+.table .table-row:nth-child(2n) {
   background-color: var(--main-color-mid);
 }
 
 .table .table-row .name {
   display: inline-block;
   width: 50%;
+  padding: 12px 8px;
 }
 
 .table .table-row .size {
@@ -228,7 +254,16 @@
   width: 12.5%;
 }
 
-.table .table-row button {
-  display: inline-block;
+.table .table-row .button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   width: 12.5%;
+}
+
+.table .table-row .button button {
+  height: 30px;
+  min-width: 50%;
+  background-color: var(--main-color-dark);
+  font-size: 16px;
 }
