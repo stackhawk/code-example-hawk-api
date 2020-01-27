@@ -17,7 +17,7 @@
 
 1. Implement filter functionality on table headings, and when interacting with filter text input.
 2. Add Sass or Less to improve CSS efficiency, or styled-components for React.
-3. Dial in CSS, not pixel perfect in current state.
+3. Dial in CSS, not pixel perfect in current state - most notably is the display of the filter input of the hawk table when the details form is visible
 4. Refactor CSS grid, instead of using grid-template-areas, use grid-column-start, grid-row-end, etc. Display form grid is hard to understand due to so many grid cells.
 5. Implement idiomatic CSS.
 6. Form validation - can send empty values but will not display any errors.
