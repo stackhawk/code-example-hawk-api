@@ -34,6 +34,7 @@ const Table: React.FC<TableProps> = TableProps => {
       ) : (
         TableProps.hawks.map(hawk => (
           <TableRow
+            key={hawk.id}
             hawk={hawk}
             toggleDetails={TableProps.toggleDetails}
           ></TableRow>

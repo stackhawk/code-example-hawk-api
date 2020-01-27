@@ -30,26 +30,14 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
         <select
           id="size"
           onChange={e => this.props.handleChange(e.target.value, "size")}
+          defaultValue={
+            this.props.hawkDetails.size ? this.props.hawkDetails.size : ""
+          }
         >
-          {!this.props.hawkDetails.size && <option selected> </option>}
-          <option
-            value="SMALL"
-            selected={this.props.hawkDetails.size === "SMALL"}
-          >
-            Small
-          </option>
-          <option
-            value="MEDIUM"
-            selected={this.props.hawkDetails.size === "MEDIUM"}
-          >
-            Medium
-          </option>
-          <option
-            value="LARGE"
-            selected={this.props.hawkDetails.size === "LARGE"}
-          >
-            Large
-          </option>
+          <option value=""></option>
+          <option value="SMALL">Small</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="LARGE">Large</option>
         </select>
         <label htmlFor="gender" className="gender-label">
           Gender
@@ -57,21 +45,13 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
         <select
           id="gender"
           onChange={e => this.props.handleChange(e.target.value, "gender")}
+          defaultValue={
+            this.props.hawkDetails.gender ? this.props.hawkDetails.gender : ""
+          }
         >
-          {!this.props.hawkDetails.gender && <option selected> </option>}
-
-          <option
-            value="MALE"
-            selected={this.props.hawkDetails.gender === "MALE"}
-          >
-            Male
-          </option>
-          <option
-            value="MALE"
-            selected={this.props.hawkDetails.gender === "FEMALE"}
-          >
-            Female
-          </option>
+          <option value=""></option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
         </select>
         <span className="length-label">Length</span>
         <label className="length-from">From</label>
