@@ -31,21 +31,22 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
           id="size"
           onChange={e => this.props.handleChange(e.target.value, "size")}
         >
+          {!this.props.hawkDetails.size && <option selected> </option>}
           <option
             value="SMALL"
-            selected={this.props.hawkDetails.name === "SMALL"}
+            selected={this.props.hawkDetails.size === "SMALL"}
           >
             Small
           </option>
           <option
             value="MEDIUM"
-            selected={this.props.hawkDetails.name === "MEDIUM"}
+            selected={this.props.hawkDetails.size === "MEDIUM"}
           >
             Medium
           </option>
           <option
             value="LARGE"
-            selected={this.props.hawkDetails.name === "LARAGE"}
+            selected={this.props.hawkDetails.size === "LARGE"}
           >
             Large
           </option>
@@ -57,6 +58,8 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
           id="gender"
           onChange={e => this.props.handleChange(e.target.value, "gender")}
         >
+          {!this.props.hawkDetails.gender && <option selected> </option>}
+
           <option
             value="MALE"
             selected={this.props.hawkDetails.gender === "MALE"}
@@ -130,16 +133,15 @@ export class HawkDetails extends Component<HawkDetailsProps, HawkDetailsState> {
           value={this.props.hawkDetails.weightEnd}
         />
         <span className="weight-units">cm</span>
-        <label className="url-input">
+        <label htmlFor="url" className="url-label">
           Url
-          <input
-            onChange={e =>
-              this.props.handleChange(e.target.value, "pictureUrl")
-            }
-            type="text"
-            value={this.props.hawkDetails.pictureUrl}
-          />
         </label>
+        <input
+          id="url"
+          type="text"
+          value={this.props.hawkDetails.pictureUrl}
+          onChange={e => this.props.handleChange(e.target.value, "pictureUrl")}
+        />
         <label className="color-description">
           Color description
           <textarea

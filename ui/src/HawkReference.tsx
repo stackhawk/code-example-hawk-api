@@ -73,14 +73,6 @@ export class HawkReference extends Component<
   };
 
   saveHawk = () => {
-    // fetch("https://api.github.com/gists", {
-    //   method: "post",
-    //   body: JSON.stringify(opts)
-    // })
-    //   .then(function(response) {})
-    //   .then(function(data) {
-    //     ChromeSamples.log("Created Gist:", data.html_url);
-    //   });
     const hawk = Object.assign({}, this.state.hawkDetails, { id: Date.now() });
     fetch("/api/hawk", {
       method: "post",
@@ -96,7 +88,6 @@ export class HawkReference extends Component<
   };
 
   handleChange = (value: string, property: string) => {
-    type propertyA = keyof Hawk;
     const hawkDetails = { ...this.state.hawkDetails };
     (hawkDetails as IIndexable)[property] = value;
     this.setState({ hawkDetails });
@@ -109,6 +100,7 @@ export class HawkReference extends Component<
           toggleDetails={this.toggleDetails}
           addHawk={this.addHawk}
           hawks={this.state.hawks}
+          displayDetails={this.state.displayDetails}
         ></HawkTable>
         {this.state.displayDetails && (
           <HawkDetails

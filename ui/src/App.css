@@ -3,6 +3,7 @@
 :root {
   --main-color-dark: rgb(196, 196, 196);
   --main-color-mid: rgb(225, 225, 225);
+  --main-color-midlight: rgb(231, 231, 231);
   --main-color-light: rgb(238, 238, 238);
 }
 
@@ -14,6 +15,7 @@
 
 .hawk-reference {
   display: flex;
+  padding: 5px;
 }
 
 /* Details */
@@ -26,16 +28,99 @@
   display: initial;
   width: 100%;
   display: grid;
+  grid-row-gap: 8px;
+  background-color: var(--main-color-light);
+  border: 8px solid var(--main-color-dark);
+  padding: 4px 8px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 3fr 3fr 3fr 2fr;
-  grid-template-areas: "nameLabel nameLabel nameInput nameInput nameInput nameInput nameInput nameInput" "sizeLabel sizeLabel sizeInput sizeInput sizeInput . . ." "genderLabel genderLabel genderInput genderInput genderInput . . ." "lengthLabel lengthLabel lengthFrom lengthFromInput lengthTo lengthToInput lengthUnits lengthUnits" "wingspanLabel wingspanLabel wingspanFrom wingspanFromInput wingspanTo wingspanToInput wingspanUnits wingspanUnits" "weightLabel weightLabel weightFrom weightFromInput weightTo weightToInput weightUnits weightUnits" "urlInput urlInput urlInput urlInput urlInput urlInput urlInput urlInput" "colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription" "behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription" "habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription" ". . . . . . saveButton saveButton";
+  grid-template-areas: "nameLabel nameLabel nameInput nameInput nameInput nameInput nameInput nameInput" "sizeLabel sizeLabel sizeInput sizeInput sizeInput . . ." "genderLabel genderLabel genderInput genderInput genderInput . . ." "lengthLabel lengthLabel lengthFrom lengthFromInput lengthTo lengthToInput lengthUnits lengthUnits" "wingspanLabel wingspanLabel wingspanFrom wingspanFromInput wingspanTo wingspanToInput wingspanUnits wingspanUnits" "weightLabel weightLabel weightFrom weightFromInput weightTo weightToInput weightUnits weightUnits" "urlLabel urlLabel urlInput urlInput urlInput urlInput urlInput urlInput" "colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription colorDescription" "behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription behaviorDescription" "habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription habitatDescription" ". . . . . . saveButton saveButton";
 }
+
+.hawk-details label {
+  background-color: var(--main-color-mid);
+  padding-top: 6px;
+  padding-left: 8px;
+}
+
+#name,
+#url {
+  font-size: 16px;
+  border: 4px solid var(--main-color-mid);
+  margin-left: 6px;
+}
+
+#size,
+#gender {
+  height: 100%;
+  margin-left: 6px;
+  background-color: var(--main-color-midlight);
+  border: none;
+  font-size: 16px;
+}
+
+.length-label,
+.wingspan-label,
+.weight-units,
+.wingspan-units,
+.weight-label,
+.length-units {
+  padding-top: 6px;
+  padding-left: 8px;
+  background-color: var(--main-color-mid);
+}
+
+.length-to,
+.wingspan-to,
+.weight-to,
+.length-from,
+.wingspan-from,
+.weight-from {
+  margin-left: 6px;
+  padding-right: 6px;
+}
+
+.length-from-input,
+.length-to-input,
+.wingspan-from-input,
+.wingspan-to-input,
+.weight-from-input,
+.weight-to-input {
+  height: 100%;
+  margin-left: 6px;
+  background-color: var(--main-color-midlight);
+  border: none;
+  font-size: 16px;
+}
+
+.color-description textarea,
+.behavior-description textarea,
+.habitat-description textarea {
+  display: block;
+  width: 98%;
+  height: 62%;
+  border: none;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.save-button {
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--main-color-dark);
+}
+
+/* Grid areas  */
 
 .hawk-details .name-label {
   grid-area: nameLabel;
 }
 
-.hawk-details #id {
+.hawk-details #name {
   grid-area: nameInput;
 }
 
@@ -127,7 +212,11 @@
   grid-area: weightUnits;
 }
 
-.hawk-details .url-input {
+.hawk-details .url-label {
+  grid-area: urlLabel;
+}
+
+.hawk-details #url {
   grid-area: urlInput;
 }
 
