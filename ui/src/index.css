@@ -1,3 +1,5 @@
+@import 'css-utility-belt/dist/index.css';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
