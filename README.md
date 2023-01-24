@@ -20,7 +20,7 @@ Be creative and demonstrate your UI skills!
 
 ## Dependencies
 
-To build and run the api you'll need a have [docker](https://www.docker.com/products/docker-desktop).
+To build and run the api you'll need to have [docker](https://www.docker.com/products/docker-desktop).
 
 ## Build API Docker
 
